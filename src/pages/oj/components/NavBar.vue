@@ -1,7 +1,7 @@
 <template>
   <div id="header">
     <Menu theme="light" mode="horizontal" @on-select="handleRoute" :active-name="activeMenu" class="oj-menu">
-      <div class="logo"><span>{{website.website_name}}</span></div>
+      <div class="logo"><img :src="imgUrl"/></div>
       <Menu-item name="/">
         <Icon type="home"></Icon>
         {{$t('m.Home')}}
@@ -90,6 +90,11 @@
       login,
       register
     },
+    data () {
+      return {
+        imgUrl: require('../../../assets/logo.png')
+      }
+    },
     mounted () {
       this.getProfile()
     },
@@ -143,11 +148,12 @@
     }
 
     .logo {
+      margin-top: 2px;
       margin-left: 2%;
       margin-right: 2%;
       font-size: 20px;
       float: left;
-      line-height: 60px;
+      line-height: 20px;
     }
 
     .drop-menu {
